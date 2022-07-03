@@ -1,5 +1,5 @@
-# merkle-interview
-CTR predict: https://www.kaggle.com/c/avazu-ctr-prediction
+# CTR predict
+Kaggle: https://www.kaggle.com/c/avazu-ctr-prediction
 <hr>
 <br>
 
