@@ -40,7 +40,7 @@ Kaggle: https://www.kaggle.com/c/avazu-ctr-prediction
 3、承上述，大多的data會落在總體平均點擊率往上下加減0.04之間，但有些column明顯在0.04之外占了絕大部分，於是我改將data分成11類，分別改成上下加減0.01、0.03、...、0.09。此方法最終loss若在0.47左右，有些微進步但不明顯。
 <br>
 
-4、這時我考慮到上兩次我在training的過程中，training loss和 valudation loss(未經train)都會降到0.31左右，但在testing data裡卻會飄到0.48，training過程中沒有overfitting但結果卻差很大，於是想到是在EDA時有發現的，testing data某些column的value在training data沒有，而且可能這些column影響很大，於是我計算這些沒出現過的value佔testing data的幾%，若超過testing data總量的1%，我就移除該column，此方法最終loss若在0.405左右，有明顯進步，為了想辦法進到0.4內，我有按這基礎上進行參數調整(問題3)，但仍無法到0.4內。
+4、這時我考慮到上兩次我在training的過程中，training loss和 valudation loss(未經train)都會降到0.31左右，但在testing data裡卻會飄到0.48，training過程中沒有overfitting但結果卻差很大，於是想到是在EDA時有發現的，testing data某些column的value在training data沒有，而且可能這些column影響很大，於是我計算這些沒出現過的value佔testing data的幾%，若超過testing data總量的1%，我就移除該column，此方法最終loss若在0.405左右，training過程中loss也是落在0.39左右，有明顯進步，為了想辦法進到0.4內，我有按這基礎上進行參數調整(問題3)，但仍無法到0.4內。
 <br>
 
 5、最後我承方法4對label encodeing的column做onehot encoding，主要是使維度拉長看看是否能用這些columns在更高維的空間中找到更好的結果，但幾次結果仍在0.406左右。
@@ -53,3 +53,4 @@ learning rate的部分Adam跟StepLR已經會自動更新learning rate的大小�
 
 model部分我使用MLP，layer之間我採用類似encoder-decoder的概念由小拉長再縮小，training過程中也沒有出現overfitting的現象，於是我有增厚layer觀看其變化，但效果沒什麼明顯變化也沒有因此增加training loss和 valudation loss之間的差距
 ### 4. 思考細節
+feature enigeering 和fine tune思考的邏輯都寫在2、3題裡了，最後礙於時間問題，我認為我若能了解2-4方法裡被剔除的6個columns的意義並將它們發揮到它們應有的效果，或是將模型分兩部分，未知的value沿用2-4的方法，已知的value使用2-3的方法，那testing loss很有機會降到0.38左右(考慮到training loss訓練時大約降至0.3左右但testing data有出現許多未出現過的value造成的差距)
