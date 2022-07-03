@@ -1,4 +1,6 @@
 # merkle-interview
+CTR predict: https://www.kaggle.com/c/avazu-ctr-prediction
+<hr>
 <br>
 
 ## Model Setting
@@ -14,3 +16,9 @@
   - StepLR step: 5 gamma: 0.1
 <br>
 
+## Training History and Result
+### Loss History and Confusion Matrix
+![loss_history](png/loss_history.png)
+
+### Submission
+![submission](png/submission.png)
