@@ -53,4 +53,4 @@ learning rate的部分Adam跟StepLR已經會自動更新learning rate的大小�
 
 model部分我使用MLP，layer之間我採用類似encoder-decoder的概念由小拉長再縮小，training過程中也沒有出現overfitting的現象，於是我有增厚layer觀看其變化，但效果沒什麼明顯變化也沒有因此增加training loss和 valudation loss之間的差距
 ### 4. 思考細節
-feature enigeering 和fine tune思考的邏輯都寫在2、3題裡了，最後礙於時間問題，我認為我若能了解2-4方法裡被剔除的6個columns的意義並將它們發揮到它們應有的效果，或是將模型分兩部分，未知的value沿用2-4的方法，已知的value使用2-3的方法，那testing loss很有機會降到0.38左右(考慮到training loss訓練時大約降至0.3左右但testing data有出現許多未出現過的value造成的差距)
+feature enigeering 和fine tune思考的邏輯都寫在2、3題裡了，最後礙於時間問題，我認為我若能了解2-4方法裡被剔除的6個columns的意義並將它們發揮到它們應有的效果，那testing loss很有機會降到0.38左右(考慮到training loss訓練時大約降至0.3左右但testing data有出現許多未出現過的value造成的差距)
