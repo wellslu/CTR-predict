@@ -28,10 +28,19 @@ class MLP(nn.Module):
             nn.ReLU(inplace=True),
             nn.Linear(64, 1),
         )
-
+	
+        self._initialize_weights()
+    
     def forward(self, x):
         x = self.flatten(x)
         x = self.features(x)
         x = self.classifier(x)
         x = torch.sigmoid(x)
         return x
+   
+    def _initialize_weights(self):
+        # weight initialization
+        for m in self.modules():
+            if isinstance(m, nn.Linear):
+                nn.init.normal_(m.weight, 0, 0.01)
+                nn.init.zeros_(m.bias)
