@@ -19,7 +19,7 @@ Kaggle: https://www.kaggle.com/c/avazu-ctr-prediction
 ## Training History and Result
 ### Loss History and Confusion Matrix
 <img src="png/loss_history.png" width="400"></img>
-![confusion_matrix](png/confusion_matrix.png)
+<img src="png/confusion_matrix.png" width="400"></img>
 ### Submission
 ![submission](png/submission.png)
 <br>
